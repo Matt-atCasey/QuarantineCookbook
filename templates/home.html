@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row recipe_container">
+    {% for recipe in recipes %}
+    <div class="col s9 offset-s2 recipe_card">
+        <div class="col s3"><img class="responsive-img" src="static/img/{{recipe.recipe_img}}" /></div>
+        <div class="col s9">
+            <!-- Max char count for desc 215? -->
+            <h2 class="desc_header">{{recipe.recipe_name}}</h2>
+            <p class="add_text">Serves: {{recipe.serves}}</p>
+            <p class="add_text">Time: {{recipe.time}} mins</p>
+            <div class="divider"></div>
+            <p class="desc_text">{{recipe.recipe_desc}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
