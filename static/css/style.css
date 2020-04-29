@@ -4,7 +4,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background: #FFD6D6;
+  background: #ffd6d6;
 }
 
 header {
@@ -13,8 +13,8 @@ header {
 }
 
 nav {
-  background: #EF7229;
-  border: 4px solid #FFFAF6;
+  background: #ef7229;
+  border: 4px solid #fffaf6;
   box-sizing: border-box;
   border-radius: 12px;
   height: 82px;
@@ -43,8 +43,7 @@ nav {
   font-weight: bold;
   font-size: 27px;
   line-height: 34px;
-  color: #324B4C;
-
+  color: #324b4c;
 }
 
 .header_nav {
@@ -65,24 +64,22 @@ nav {
   font-family: Quicksand;
   font-style: normal;
   font-weight: 500;
-  font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
-  color: #324B4C;
+  font-size: calc(13px + (15 - 13) * ((100vw - 300px) / (1600 - 300)));
+  color: #324b4c;
   padding: 0%;
   margin: 0%;
   display: flex;
   padding-left: 5px;
 }
 
-
 .add_text {
-  color: #7B2C00;
-
+  color: #7b2c00;
 }
 
 .desc_header {
   font-weight: bold;
   /* ([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width] */
-  font-size: calc(23px + (27 - 23) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(23px + (24 - 23) * ((100vw - 300px) / (1600 - 300)));
 }
 
 /* Main page recipe cards */
@@ -95,10 +92,9 @@ nav {
 }
 
 .divider {
-  background: #324B4C;
+  background: #324b4c;
   width: 25%;
   margin-left: 15vw;
-
 }
 
 .recipe_container {
@@ -107,4 +103,16 @@ nav {
 
 .recipe_container .col {
   padding: 0%;
+}
+
+.add_recipe_header {
+  margin-top: 5vh;
+}
+
+.btn {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(13px + (15 - 13) * ((100vw - 300px) / (1600 - 300)));
+  background: #324b4c;
 }
