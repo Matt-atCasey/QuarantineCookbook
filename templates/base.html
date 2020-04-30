@@ -18,7 +18,9 @@
             <div class="col s8 logo">
                 <img src={{url_for( 'static' , filename='img/logo.png')}}>
             </div>
-            <div class="test col s2 l4 header_nav">
+
+
+            <div class="test col s3 header_nav">
                 <!------------------------------------------------------------NAV -->
                 <nav>
                     <div class="nav-wrapper">
@@ -26,10 +28,10 @@
                                 src="{{url_for( 'static' , filename='img/menu.png')}}" alt=""></a>
 
                         <ul class="hide-on-med-and-down">
-                            <li class="nav_items"><a href="sass.html"><img
+                            <li class="nav_items"><a href="{{url_for('home' )}}"><img
                                         src="{{url_for( 'static' , filename='img/home.png')}}"
                                         alt="home button icon"></a></li>
-                            <li class="nav_items"><a href="badges.html"><img
+                            <li class="nav_items"><a href="{{url_for('login' )}}"><img
                                         src="{{url_for( 'static' , filename='img/account.png')}}"
                                         alt="account menu icon"></a></li>
                             <li class="nav_items"><a href="collapsible.html"><img
@@ -49,11 +51,23 @@
                     <li><a href="mobile.html">Mobile</a></li>
                 </ul>
             </div>
+            {% if session.get('USERNAME') %}
+            <div class="col s1">
+                <a href="{{url_for('logout')}}" class="btn logout desc_text center">Logout</a>
+            </div>
+            {% endif %}
         </div>
     </header>
     <!--------------------------------------END NAV -->
 
     <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         {% block content %}
 
         {% endblock content %}
@@ -65,6 +79,7 @@
             $('.sidenav').sidenav();
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Display Flashed Messages -->
+
+
+<div class="login_header">
+    <img src="{{url_for('static', filename='/img/login.png')}}" alt="">
+</div>
+
+<div class="row login_form">
+    <form class="col s6 offset-s3" action="{{url_for('login')}}" method="post">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" name="username" type="text" class="validate" required minlength="5" maxlength="15">
+                <label for="username">Username*</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" name="password" type="password" class="validate" required minlength="5"
+                    maxlength="20">
+                <label for="password">Password*</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Log in
+        </button>
+
+</div>
+</form>
+{% endblock content %}
