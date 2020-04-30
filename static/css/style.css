@@ -109,6 +109,9 @@ nav {
 .add_recipe_header {
   margin-top: 5vh;
 }
+
+
+
 .login_header {
   margin: 20vh 0 0 10vw;
 }
@@ -125,29 +128,35 @@ nav {
 .login_form {
   font-family: Pacifico;
 }
+
 /* label color */
 .input-field label {
   color: #efa781;
   font-size: calc(17px + (20 - 17) * ((100vw - 300px) / (1600 - 300)));
 }
+
 /* label focus color */
-.input-field input[type='text']:focus + label {
+.input-field input[type='text']:focus+label {
   color: #ef7229;
 }
+
 /* label underline focus color */
 .input-field input[type='password'] {
   border-bottom: 1.5px solid #026873;
   box-shadow: 0 1px 0 0 #026873;
 }
+
 .input-field input[type='text'] {
   border-bottom: 1.5px solid #026873;
   box-shadow: 0 1px 0 0 #026873;
 }
+
 /* valid color */
 .input-field input[type='text'].valid {
   border-bottom: 1px solid #089767;
   box-shadow: 0 1px 0 0 #089767;
 }
+
 /* invalid color */
 .input-field input[type='text'].invalid {
   border-bottom: 1px solid rgb(172, 24, 24);
@@ -159,4 +168,10 @@ nav {
   color: #ef7229;
   display: block;
   margin-right: 2vh;
+}
+
+.login_form a {
+  color: #ef72299d;
+  text-decoration: underline;
+  margin-top: 20px;
 }

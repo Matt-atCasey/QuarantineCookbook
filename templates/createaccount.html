@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="login_header">
+    <img src="{{url_for('static', filename='/img/createaccount.png')}}" alt="">
+</div>
+
+<div class="row login_form">
+    <form class="col s6 offset-s3" action="{{url_for('create_account')}}" method="post">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" name="username" type="text" class="validate" required minlength="5" maxlength="15">
+                <label for="username">Choose your Username...</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="password" name="password" type="password" class="validate" required minlength="5"
+                    maxlength="20">
+                <label for="password">Choose your Password...</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="confirm_password" name="confirm_password" type="password" class="validate" required
+                    minlength="5" maxlength="20">
+                <label for="confirm_password">Confirm your Password...</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Create Account
+        </button>
+        <a href="{{url_for('login')}}" class="col s4">Login here...</a>
+
+</div>
+</form>
+
+{% endblock content %}
