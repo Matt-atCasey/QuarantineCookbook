@@ -108,6 +108,7 @@ nav {
 
 .add_recipe_header {
   margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 
 
@@ -141,14 +142,17 @@ nav {
 }
 
 /* label underline focus color */
-.input-field input[type='password'] {
-  border-bottom: 1.5px solid #026873;
-  box-shadow: 0 1px 0 0 #026873;
+.input-field input[type='password'],
+.input-field input[type='number'],
+.materialize-textarea,
+.input-field input[type='text'] {
+  border-bottom: 1.5px solid #026873 !important;
+  box-shadow: 0 1px 0 0 #026873 !important;
 }
 
-.input-field input[type='text'] {
-  border-bottom: 1.5px solid #026873;
-  box-shadow: 0 1px 0 0 #026873;
+label {
+  color: #efa781;
+  font-family: Pacifico;
 }
 
 /* valid color */

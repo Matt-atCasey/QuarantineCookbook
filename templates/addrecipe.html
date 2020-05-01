@@ -1,53 +1,87 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="add_recipe_header">
+<div class="add_recipe_header ">
     <img src="{{url_for('static', filename='/img/newrecipe.png')}}" alt="">
+</div>
+<!------------------------------------------------------------ -->
+<div class="row">
+    <form class="col s12" method="post" enctype="multipart/form-data">
+
+        <div class="input-field col s4 offset-s2">
+            <input id="recipe_name" name="recipe_name" type="text" class="validate" required minlength="3"
+                maxlength="35">
+            <label for="recipe_name">Name of your recipe...</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="author" name="author" type="text" value="{{session['USERNAME']}}" readonly>
+            <label for="confirm_password">Author</label>
+            <span class="helper-text">(You cannot change this)</span>
+        </div>
+</div>
+<!---------------------------------------------------------------- -->
+<div class="row">
+    <div class="input-field col s4 offset-s2">
+        <textarea class="materialize-textarea validate" id="recipe_ingredients" name="recipe_ingredients" required
+            minlength="3" maxlength="500"></textarea>
+        <label for="recipe_ingredients">Ingredients List...</label>
+    </div>
+    <div class="input-field col s2">
+        <input id="time" name="time" type="number" class="validate" required min="1" max="600">
+        <label for="time">Time(mins):</label>
+    </div>
+
+    <div class="input-field col s2">
+        <input id="serves" name="serves" type="number" class="validate" required min="1" max="10">
+        <label for="serves">Serves:</label>
+    </div>
+
+</div>
+<!---------------------------------------------------------------- -->
+<div class="row">
+    <div class="input-field col s4 offset-s2">
+        <textarea class="materialize-textarea validate" id="recipe_desc" name="recipe_desc" required minlength="3"
+            maxlength="1000"></textarea>
+        <label for="recipe_desc">Recipe Description...</label>
+    </div>
+    <div class="input-field col s4">
+        <textarea class="materialize-textarea validate" id="recipe_method" name="recipe_method" required minlength="3"
+            maxlength="2000"></textarea>
+        <label for="recipe_method">Recipe Method...</label>
+    </div>
 </div>
 
 <div class="row">
-    <form class="col s12" action="#" method="post">
-        <div class="col s6 recipe_form file-field input-field">
-            <div class="btn">
-                <span>File</span>
-                <input type="file" name="recipe_img" id="recipe_img">
-            </div>
-            <div class="file-path-wrapper">
-                <input type="text" class="file-path validate">
-            </div>
+    <div class="col s4 offset-s2 recipe_form file-field input-field">
+        <div class="btn">
+            <span>Upload an image!</span>
+            <input type="file" name=photo>
+        </div>
+        <div class="file-path-wrapper">
+            <input type="text" class="file-path validate">
+        </div>
+    </div>
+    <p>
+        <label>
+            <input type="checkbox" id="is_veggie" name="is_veggie" />
+            <span>Vegetarian</span>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="checkbox" id="is_vegan" name="is_vegan" />
+            <span>Vegan</span>
+        </label>
+    </p>
 
-
-        </div>
-
-
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
-        </div>
-        <div class="input-field col s6">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
-        </div>
-        <div class="input-field col s6">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
-        </div>
-
-        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Create
-        </button>
 </div>
+
+
+
+<button class="btn waves-effect waves-light" type="submit" name="action">Upload Recipe
+</button>
 </form>
+
+
 
 {% endblock content %}

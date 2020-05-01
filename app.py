@@ -1,16 +1,23 @@
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for,  session, flash
 import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_uploads import configure_uploads, IMAGES, UploadSet
+
 # App config
 app = Flask(__name__)
+
 app.config['MONGO_DBNAME'] = 'cookbook-app-db'
 # DO NOT UPLOAD WITH URI
 app.config['MONGO_URI'] = (
     "")
 app.config['SECRET_KEY'] = ''
 mongo = PyMongo(app)
+
+photos = UploadSet('photos', IMAGES)
+app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
+configure_uploads(app, photos)
 
 # Default home page
 @app.route('/')
@@ -22,12 +29,21 @@ def home():
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     if request.method == 'GET':
-        return render_template('addrecipe.html')
-    else:
-        if request.method == 'POST':
-            exis_recipes = mongo.db.recipe
-            exis_recipes.insert_one(request.form.to_dict())
-            return redirect(url_for('home'))
+        if 'USERNAME' in session:
+            return render_template('addrecipe.html')
+        else:
+            flash('You must be logged in to add a recipe! Please log in now.')
+            return redirect(url_for('login'))
+    elif request.method == 'POST':
+        if 'photo' not in request.files:
+            recipe_img = 'default.jpeg'
+        else:
+            req = request.form
+            recipe_img = photos.save(request.files['photo'])
+        new_recipe = {'author': req.get('author'), 'recipe_name': req.get('recipe_name'), 'recipe_desc': req.get('recipe_desc'), 'recipe_method': req.get('recipe_method'),
+                      'recipe_ingredients': req.get('recipe_ingredients'), 'recipe_img': recipe_img, 'time': req.get('time'), 'serves': req.get('serves'), 'is_veggie': req.get('is_veggie'), 'is_vegan': req.get('is_vegan')}
+        mongo.db.recipe.insert_one(new_recipe)
+        return redirect(url_for('home'))
 
 # Log in functionality
 @app.route('/login', methods=['GET', 'POST'])
