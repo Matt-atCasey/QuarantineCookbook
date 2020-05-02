@@ -3,7 +3,7 @@ import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.filesystem import secure_filename
+from werkzeug.utils import secure_filename
 from flask_uploads import configure_uploads, IMAGES, UploadSet
 
 # App config
@@ -40,7 +40,7 @@ def add_recipe():
             recipe_img = 'default.jpeg'
         else:
             req = request.form
-            recipe_img = photos.save(secure_filename(request.files['photo']))
+            recipe_img = photos.save(request.files['photo'])
         new_recipe = {'author': req.get('author'), 'recipe_name': req.get('recipe_name'), 'recipe_desc': req.get('recipe_desc'), 'recipe_method': req.get('recipe_method'),
                       'recipe_ingredients': req.get('recipe_ingredients'), 'recipe_img': recipe_img, 'time': req.get('time'), 'serves': req.get('serves'), 'is_veggie': req.get('is_veggie'), 'is_vegan': req.get('is_vegan')}
         mongo.db.recipe.insert_one(new_recipe)
