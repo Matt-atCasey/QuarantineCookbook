@@ -10,15 +10,14 @@ import json
 # App config
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'cookbook-app-db'
+app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 # DO NOT UPLOAD WITH URI
-app.config['MONGO_URI'] = (
-    "")
-app.config['SECRET_KEY'] = ''
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 mongo = PyMongo(app)
 # Config for flask uploads
 photos = UploadSet('photos', (IMAGES))
-app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
+app.config['UPLOADED_PHOTOS_DEST'] = os.environ.get('UPLOADED_PHOTOS_DEST')
 configure_uploads(app, photos)
 
 # Default home page with search fucntion
