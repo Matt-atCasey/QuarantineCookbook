@@ -3,6 +3,7 @@ import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from flask_uploads import configure_uploads, IMAGES, UploadSet
 import json
 
@@ -179,4 +180,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=(
-        os.environ.get('PORT')), debug=True)
+        os.environ.get('PORT')))
