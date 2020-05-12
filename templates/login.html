@@ -9,7 +9,7 @@
 </div>
 
 <div class="row login_form">
-    <form class="col s6 offset-s3" action="{{url_for('login')}}" method="post">
+    <form class="col s12 m6 offset-m3" action="{{url_for('login')}}" method="post">
         <div class="row">
             <div class="input-field col s12">
                 <input id="username" name="username" type="text" class="validate" required minlength="5" maxlength="15">
@@ -23,9 +23,9 @@
                 <label for="password">Enter your Password...</label>
             </div>
         </div>
-        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Log in
+        <button class="btn waves-effect waves-light col s12 m6 offset-m3" type="submit" name="action">Log in
         </button>
-        <a href="{{url_for('create_account')}}" class="col s4">Create an account here...</a>
+        <a href="{{url_for('create_account')}}" class="col s12 l4">Create an account here...</a>
 
 </div>
 </form>

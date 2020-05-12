@@ -20,49 +20,61 @@
             </div>
 
             <!------------------------------------------------------------NAV -->
-            <div class="col s3 header_nav">
 
+            <div class="col s3 header_nav">
                 <nav class="row">
                     <div class="nav-wrapper col s12">
                         <div class="row">
-                            <div class="col s12">
-                                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img
+                            <div class="col s2 offset-s9">
+                                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img class=""
                                         src="{{url_for('static',filename='img/menu.png')}}" alt="">
                                 </a>
                             </div>
                         </div>
 
-                        <ul class="hide-on-med-and-down">
-                            <div class="col s12">
-                                <div class="col s4">
-                                    <li><a href="{{url_for('home' )}}"><img class="nav_items"
-                                                src="{{url_for( 'static' , filename='img/home.png')}}"
-                                                alt="home button icon"></a></li>
+                        <div class="row full_nav hide-on-med-and-down">
+
+                            <ul class="">
+                                <div class="col s12">
+                                    <div class="col s4">
+                                        <li><a href="{{url_for('home' )}}"><img class="nav_items"
+                                                    src="{{url_for( 'static' , filename='img/home.png')}}"
+                                                    alt="home button icon"></a></li>
+                                    </div>
+                                    <div class="col s4">
+                                        <li><a href="{{url_for('login' )}}"><img class="nav_items"
+                                                    src="{{url_for( 'static' , filename='img/account.png')}}"
+                                                    alt="account menu icon"></a></li>
+                                    </div>
+                                    <div class="col s4">
+                                        <li><a href="{{url_for('add_recipe')}}"><img class="nav_items"
+                                                    src="{{url_for( 'static' , filename='img/addrecipe.png')}}"
+                                                    alt="add recipe icon"></a></li>
+                                    </div>
                                 </div>
-                                <div class="col s4">
-                                    <li><a href="{{url_for('login' )}}"><img class="nav_items"
-                                                src="{{url_for( 'static' , filename='img/account.png')}}"
-                                                alt="account menu icon"></a></li>
-                                </div>
-                                <div class="col s4">
-                                    <li><a href="{{url_for('add_recipe')}}"><img class="nav_items"
-                                                src="{{url_for( 'static' , filename='img/addrecipe.png')}}"
-                                                alt="add recipe icon"></a></li>
-                                </div>
-                            </div>
-                        </ul>
+                            </ul>
+                        </div>
 
                     </div>
                 </nav>
             </div>
             <ul class="sidenav" id="mobile-demo">
-                <li><a href="{{url_for('home' )}}">HOME</a></li>
-                <li><a href="{{url_for('login' )}}">LOGIN</a></li>
-                <li><a href="{{url_for('add_recipe')}}">CREATE RECIPE</a></li>
+                <li><a href="{{url_for('home' )}}"><img src="{{url_for( 'static' , filename='img/home.png')}}"
+                            alt="add recipe icon"></a></li>
+                <li><a href="{{url_for('login' )}}"><img src="{{url_for( 'static' , filename='img/account.png')}}"
+                            alt="add recipe icon"></a></li>
+                <li><a href="{{url_for('add_recipe')}}"><img src="{{url_for( 'static' , filename='img/addrecipe.png')}}"
+                            alt="add recipe icon">
+                    </a>
+
+                </li>
+                {% if session.get('USERNAME') %}
+                <li> <a href="{{url_for('logout')}}" class="btn logout desc_text center">LOGOUT</a></li>
+                {% endif %}
             </ul>
 
             {% if session.get('USERNAME') %}
-            <div class="col s1">
+            <div class="col s1 hide-on-med-and-down">
                 <a href="{{url_for('logout')}}" class="btn logout desc_text center">Logout</a>
             </div>
             {% endif %}
