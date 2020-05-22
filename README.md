@@ -5,6 +5,9 @@ Users can create an account and upload their recipe with a picture and 'like' ot
 It is catered towards the beginners and intermediate cooks, with a simple way to create a recipe without complex builders 
 and countless chunks of nutritional information.
 
+## Mockups
+[Link to mockup pdf within repo](../master/static/mockup/mock-ups.pdf)
+
 ## UX
 
 This website is designed to be as simple and to point as it can be. Loading the site brings you toa list of recipes that users
