@@ -57,13 +57,11 @@ Heroku config variables are used in order to conceal the Mongo URI and the sessi
 config variables.
 
 ## Testing
-//TODO\\
+  * Went through the site with my tutor checking major flaws there could be with the site. For example, checking authentication
+  was working properly and did not allow non users into parts of the site that they shouldnt be.
+  * went through the user stories to make sure that the site worked as intended.
+  * Forwarded site to users without giving them context of the site to see if the ux and ui was easily understood. 
+  Which it seemed to be.
 
 ## Credits
-//TODO\\
-
-### Content
-//TODO\\
-
-### Media
-//TODO\\
+All work was done by me.
