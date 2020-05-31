@@ -55,7 +55,7 @@ This project uses:
 
 ## Deployment
 
-This site is deployed [HERE](http://quarantinecookbook.herokuapp.com/add_recipe) on Heroku.  
+This site is deployed [HERE](https://quarantinecookbook.herokuapp.com/) on Heroku.  
 Heroku config variables are used in order to conceal the Mongo URI and the session secret Key. Along with all other app
 config variables.
 
